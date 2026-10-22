@@ -154,9 +154,15 @@ tr:last-child td{border-bottom:0}
 .lose{color:var(--muted)}
 
 /* ---------- Chrono ---------- */
-.chrono-display{font-family:Fraunces,Georgia,serif;font-weight:800;font-size:clamp(3rem,14vw,5.5rem);text-align:center;font-variant-numeric:tabular-nums;letter-spacing:-.02em;color:var(--azul);margin:4px 0 14px}
+.chrono-display{font-family:Fraunces,Georgia,serif;font-weight:800;font-size:clamp(2.6rem,11vw,5.5rem);text-align:center;font-variant-numeric:tabular-nums;letter-spacing:-.02em;color:var(--azul);margin:4px 0 14px}
 @media (prefers-color-scheme: dark){.chrono-display{color:var(--amarelo)}}
 .chrono-display.running{color:var(--vermelho)}
+.chrono-row{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin:4px 0 16px}
+.chrono-row .chrono-display{margin:0}
+.btn.stop{background:var(--vermelho);border-color:var(--vermelho);color:#fff;font-size:1.2rem;padding:14px 24px;min-height:60px}
+.btn.stop:hover{background:#b3241d}
+.btn.go{background:var(--verde);border-color:var(--verde);color:#fff}
+.btn.stop:disabled,.btn.go:disabled{background:var(--surface-2);border-color:var(--line);color:var(--muted)}
 .chrono-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
 
 

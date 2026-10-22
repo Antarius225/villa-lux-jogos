@@ -467,8 +467,9 @@
     var c = ui.chrono;
     if (ui.chronoPlayer && !player(ui.chronoPlayer)) ui.chronoPlayer = '';
     return '<section class="card"><h3>⏱️ Chrono</h3>' +
-      '<div class="chrono-display' + (c.running ? ' running' : '') + '" id="chrono-display">' + chronoText(chronoElapsed()) + '</div>' +
-      '<div class="chrono-btns"><button class="btn big ' + (c.running ? 'sun' : 'primary') + '" data-action="chrono-toggle">' + (c.running ? '⏸ Stop' : (c.elapsed ? '▶ Reprendre' : '▶ Partez !')) + '</button>' +
+      '<div class="chrono-row"><div class="chrono-display' + (c.running ? ' running' : '') + '" id="chrono-display">' + chronoText(chronoElapsed()) + '</div>' +
+      '<button class="btn stop" data-action="chrono-stop"' + (c.running ? '' : ' disabled') + '>⏹ Stop</button></div>' +
+      '<div class="chrono-btns"><button class="btn big go" data-action="chrono-start"' + (c.running ? ' disabled' : '') + '>▶ ' + (c.elapsed ? 'Reprendre' : 'Démarrer') + '</button>' +
       '<button class="btn big" data-action="chrono-reset"' + (c.running ? ' disabled' : '') + '>↺ Zéro</button></div>' +
       '<div class="row"><label class="sr-only" for="chrono-player">Participant</label><select class="field" id="chrono-player" data-fk="chrono-player">' +
       '<option value="">— Choisir le participant —</option>' +
@@ -478,6 +479,7 @@
   function chronoTick() {
     var el = document.getElementById('chrono-display');
     if (el) el.textContent = chronoText(chronoElapsed());
+    cancelAnimationFrame(ui.chrono.raf);
     if (ui.chrono.running) ui.chrono.raf = requestAnimationFrame(chronoTick);
   }
 
@@ -666,10 +668,14 @@
       var u = {}; u['matchs/' + b.dataset.disc + '/' + b.dataset.mid] = null;
       commit(u, 'Match supprimé.');
     },
-    'chrono-toggle': function () {
-      var c = ui.chrono;
-      if (c.running) { c.elapsed += performance.now() - c.start; c.running = false; cancelAnimationFrame(c.raf); }
-      else { c.start = performance.now(); c.running = true; }
+    'chrono-start': function () {
+      var c = ui.chrono; if (c.running) return;
+      c.start = performance.now(); c.running = true;
+      render();
+    },
+    'chrono-stop': function () {
+      var c = ui.chrono; if (!c.running) return;
+      c.elapsed += performance.now() - c.start; c.running = false; cancelAnimationFrame(c.raf);
       render();
     },
     'chrono-reset': function () { ui.chrono.elapsed = 0; render(); },

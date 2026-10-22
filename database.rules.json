@@ -1,0 +1,15 @@
+{
+  "rules": {
+    "secret": { ".read": false, ".write": false },
+    "arbitres": {
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": "auth != null && auth.uid === $uid && (!newData.exists() || newData.val() === root.child('secret/code').val())"
+      }
+    },
+    "jogos": {
+      ".read": true,
+      ".write": "auth != null && root.child('arbitres').child(auth.uid).exists()"
+    }
+  }
+}

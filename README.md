@@ -7,7 +7,7 @@ Page web statique pour compter les points de notre compétition multisports de v
 | | Discipline | Format | Meilleur résultat |
 |---|---|---|---|
 | 🤿 | Apnée | Nombre de longueurs de piscine (demi-longueurs acceptées) | Le plus grand nombre |
-| ⚪ | Pétanque | Matchs en 13 points (tête-à-tête, doublette, triplette) | Victoires, puis différence de points |
+| ⚪ | Pastis-Pétanque | Matchs en 13 points (tête-à-tête, doublette, triplette) | Victoires, puis différence de points |
 | 🏸 | Badminton | Matchs en 10 points (simple ou double) | Victoires, puis différence de points |
 | 🏓 | Ping-pong | Matchs en 10 points (simple ou double) | Victoires, puis différence de points |
 | 💍 | Chasse aux anneaux | Temps pour remonter tous les anneaux (chrono intégré) | Le plus rapide |
@@ -47,6 +47,6 @@ La configuration Web de Firebase n'est pas secrète : la sécurité repose sur l
 
 ## Personnaliser
 
-Les disciplines (nom, nombre de points d'un match, unité…) sont définies en haut de `app.js` dans le tableau `DISCIPLINES`, par exemple pour passer la pétanque en 11 points : `cible: 11`.
+Les disciplines (nom, nombre de points d'un match, unité…) sont définies en haut de `app.js` dans le tableau `DISCIPLINES`, par exemple pour passer la pastis-pétanque en 11 points : `cible: 11`.
 
 Boas férias ! 🇵🇹

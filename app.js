@@ -13,7 +13,7 @@
   var DISCIPLINES = [
     { id: 'apnee', nom: 'Apnée', pt: 'Apneia', icon: '🤿', type: 'mesure', unite: 'longueurs', court: 'long.', meilleur: 'haut', placeholder: 'ex. 2,5',
       aide: 'Nombre de longueurs de piscine parcourues en apnée. Le plus grand nombre l’emporte (les demi-longueurs sont acceptées).' },
-    { id: 'petanque', nom: 'Pétanque', pt: 'Petanca', icon: BOULE, type: 'match', cible: 13,
+    { id: 'petanque', nom: 'Pastis-Pétanque', pt: 'Petanca', icon: BOULE, type: 'match', cible: 13,
       aide: 'Matchs en 13 points, en tête-à-tête, doublette ou triplette. Classement : victoires, puis différence de points.' },
     { id: 'badminton', nom: 'Badminton', pt: 'Badminton', icon: '🏸', type: 'match', cible: 10,
       aide: 'Matchs en 10 points, en simple ou en double. Classement : victoires, puis différence de points.' },
